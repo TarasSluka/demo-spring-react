@@ -1,0 +1,52 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+//	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+//	compile('org.flywaydb:flyway-core')
+    compile('org.springframework.boot:spring-boot-starter-web')
+//	runtime('org.postgresql:postgresql')
+    compileOnly('org.projectlombok:lombok')
+//	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+def yarnExecutable = Os.isFamily(Os.FAMILY_WINDOWS) ? 'yarn.cmd' : 'yarn'
+task yarnInstall(type: Exec) {
+    commandLine yarnExecutable, 'install'
+}
+
+task yarnUpgrade(type: Exec) {
+    commandLine yarnExecutable, 'upgrade'
+}
+
+task webpack(type: Exec, dependsOn: ['yarnInstall', 'yarnUpgrade']) {
+    commandLine yarnExecutable, 'run', 'build'
+}
+
+
+processResources.dependsOn 'webpack'
+//clean.delete << file('node_modules')
+clean.delete << file('build/resources/main/static')

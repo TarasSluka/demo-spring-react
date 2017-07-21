@@ -1,0 +1,23 @@
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+.nb-gradle/node_modules
+/gradle/
+/.gradle/
+/gradlew.bat
+/gradlew
+/demo-spring-react.iml
+/yarn-error.log
+/node_modules/
+/out/
+node_modules/
+out/
+src/main/resources/templates/
+src/test/
+yarn-error.log
