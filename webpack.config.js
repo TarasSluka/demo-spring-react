@@ -24,14 +24,12 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/dist/'
     },
-
     devServer: {
         contentBase: ROOT,
         publicPath: '/',
-        historyApiFallback: true,
-
         host: 'localhost',
         port: 3000,
+        historyApiFallback: true,
 
         proxy: {
             '/': {
@@ -47,7 +45,7 @@ module.exports = {
                 test: /\.js$/,
                 use: {
                     loader: 'babel-loader',
-                    options: {presets: ['react', 'es2015', 'stage-2']}
+                    options: {presets: ['react', 'es2015', 'stage-0', 'stage-2', 'stage-3']}
                 }
             },
             {

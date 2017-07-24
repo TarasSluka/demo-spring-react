@@ -1,0 +1,53 @@
+
+.add-Partner-generalInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.add-Partner-paper {
+  margin-top: 10px;
+}
+
+.add-Partner-wrap-inputFields {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.add-Partner-inputFields {
+  padding-top: 16px;
+  padding-bottom: 8px;
+}
+
+.add-Partner-avatar {
+  display: flex;
+}
+
+.add-Partner-navigateButtons {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.add-Partner-navigateButtons {
+  //padding: 8px;
+
+}
+
+.add-Partner-rightButtons {
+  padding: 8px;
+  flex-direction: row;
+}
+
+.add-Partner-rightButtons-previous-btn {
+  padding-right: 8px;
+}
+
+.add-Partner-leftButtons {
+  padding: 8px;
+  flex-direction: row;
+
+}

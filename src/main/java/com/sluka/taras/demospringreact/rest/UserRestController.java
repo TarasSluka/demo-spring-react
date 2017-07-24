@@ -4,6 +4,8 @@ import com.sluka.taras.demospringreact.model.UserDto;
 import com.sluka.taras.demospringreact.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +32,12 @@ public class UserRestController {
 
     @GetMapping(value = "/{id}")
     UserDto getById(@PathVariable Integer id) {
-        return userService.getById(id);
+//    ResponseEntity<UserDto>
+        UserDto userDto = userService.getById(id);
+//        if (userDto == null)
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        return new ResponseEntity<>(userDto, HttpStatus.OK);
+        return userDto;
     }
 
 
