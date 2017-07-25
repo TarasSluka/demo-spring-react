@@ -7,61 +7,50 @@ import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import './addPartner.scss'
 import Paper from 'material-ui/Paper';
+import MainInformation from './addPartnerStep/mainInformation';
+import OtherInformation from './addPartnerStep/otherInformation';
 
-const AddPartner = () => (
-        <Paper className="add-Partner-paper">
-            <form className="add-Partner-generalInformation">
-                <div>
-                    {/*<FlatButton primary={true} label="Choose an Image">*/}
-                    {/*<input type="file" id="imageButton"></input>*/}
-                    {/*</FlatButton>*/}
-                </div>
-                <div className="add-Partner-wrap-inputFields">
-                    <TextField
-                        className="add-Partner-inputFields"
-                        hintText="*Full name"
-                        // errorText="This field is required"
-                    />
-                    <TextField
-                        className="add-Partner-inputFields"
-                        hintText="*Email"
-                        // errorText="This field is required"
-                    />
-                    {/*<TextField*/}
-                    {/*className="add-Partner-inputFields"*/}
-                    {/*hintText="*Phone number"*/}
-                    {/*floatingLabelText="*Phone number"*/}
-                    {/*/>*/}
+class AddPartner extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showPreviousBtn: false,
+            showNextBtn: true,
+            compState: 0,
+            showFirstStep: true
+        };
 
-                    <TextField
-                        className="add-Partner-inputFields"
-                        hintText="Password"
-                        type="password"
-                    />
-                    <TextField
-                        className="add-Partner-inputFields"
-                        hintText="Confirm password"
-                        type="password"
-                    />
-                    <TextField
-                        className="add-Partner-inputFields"
-                        hintText="Other information"
-                        multiLine={true}
-                        rowsMax={4}
-                    />
-                </div>
-                <div className="add-Partner-navigateButtons">
-                    <div className="add-Partner-leftButtons ">
-                        <FlatButton label="Cancle"/>
-                    </div>
-                    <div className="add-Partner-rightButtons">
-                        <FlatButton className="add-Partner-rightButtons-previous-btn" label="previous"/>
-                        <FlatButton label="next"/>
-                    </div>
-                </div>
-            </form>
-        </Paper>
+        this.hiden = {
+            display: "none"
+        };
+        this.handleOnClick = this.handleOnClick.bind(this);
+        this.onClickNext = this.onClickNext.bind(this);
+        this.onClickPrev = this.onClickPrev.bind(this);
+    }
 
-    )
-;
+    onClickPrev() {
+        setState(this.state.showFirstStep = false)
+    }
+
+    onClickNext() {
+        setState(this.state.showFirstStep = false)
+    }
+
+    render() {
+        var template;
+
+        if (showFirstStep === true) {
+            template = <MainInformation/>;
+        } else template = <OtherInformation/>;
+
+        return (
+            <Paper className="add-Partner-paper">
+                {template}
+            </Paper>
+        );
+    }
+};
 export default AddPartner;
+
+
+

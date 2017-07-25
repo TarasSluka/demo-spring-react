@@ -17,23 +17,20 @@ const style = {
 
 
 class PartnerDetails extends Component {
-
-
     render() {
-
         return (
             <div>
                 <Paper style={style.paper}>
                     <div className="partnerDetails">
+                        <div>
+                            <MainInformation/>
+                        </div>
+                        <div className="balanceInformation">
+                            <Balance/>
+                        </div>
+                    </div>
                     <div>
-                       <MainInformation/>
-                    </div>
-                    <div className="balanceInformation">
-                        <Balance/>
-                    </div>
-                    </div>
-                    <div>
-                        <ExpandCard />
+                        <ExpandCard/>
                         <ExpandCard/>
                         <ExpandCard/>
                     </div>
@@ -42,4 +39,5 @@ class PartnerDetails extends Component {
         );
     }
 }
+
 export default PartnerDetails;

@@ -10,7 +10,6 @@ import Paper from 'material-ui/Paper';
 import PartnerDetails from '../partnerDetails';
 import AddPartner from '../addPartner';
 
-
 const App = () => (
 
     <MuiThemeProvider>
@@ -21,7 +20,6 @@ const App = () => (
                     <NavigationMenu/>
                 </div>
                 <div className="card">
-
                     <AddPartner/>
 
                 </div>
