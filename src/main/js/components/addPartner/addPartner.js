@@ -11,6 +11,7 @@ import MainInformation from './addPartnerStep/mainInformation';
 import OtherInformation from './addPartnerStep/otherInformation';
 
 class AddPartner extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -28,10 +29,6 @@ class AddPartner extends Component {
         this.onClickPrev = this.onClickPrev.bind(this);
     }
 
-    onClickPrev() {
-        setState(this.state.showFirstStep = false)
-    }
-
     onClickNext() {
         setState(this.state.showFirstStep = false)
     }
@@ -39,7 +36,7 @@ class AddPartner extends Component {
     render() {
         var template;
 
-        if (showFirstStep === true) {
+        if (this.showFirstStep === true) {
             template = <MainInformation/>;
         } else template = <OtherInformation/>;
 

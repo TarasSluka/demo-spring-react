@@ -5,6 +5,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import { Field, reduxForm } from 'redux-form'
+const  { DOM: { input } } = React
 import '../addPartner.scss'
 import Paper from 'material-ui/Paper';
 
@@ -12,6 +14,9 @@ const store = {phoneNumber: '', companyName: '', country: '', city: '', streetAd
 
 
 class OtherInformation extends Component {
+    constructor(props) {
+        super(props);
+    }
 
     // getInitialState() {
     //     return store

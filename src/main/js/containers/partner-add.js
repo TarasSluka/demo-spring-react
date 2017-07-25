@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import PartnerAdd from '../components/addPartner'
 
 class ParnerAdd extends Component {
-    render() {
 
+    render() {
         return (
             <div>
                 <PartnerAdd/>

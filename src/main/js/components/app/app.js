@@ -6,9 +6,10 @@ import MainAppBar from "../mainAppBar";
 import NavigationMenu from "../navigationMenu/";
 
 import Paper from 'material-ui/Paper';
-
+import {Values} from 'redux-form-website-template';
 import PartnerDetails from '../partnerDetails';
-import AddPartner from '../addPartner';
+import WizardForm from '../addPartner/test/WizardForm';
+import showResults from '../addPartner/test/showResults';
 
 const App = () => (
 
@@ -20,10 +21,9 @@ const App = () => (
                     <NavigationMenu/>
                 </div>
                 <div className="card">
-                    <AddPartner/>
-
+                    <WizardForm onSubmit={showResults}/>
                 </div>
-
+                {/*<Values form="wizard"/>*/}
             </div>
         </div>
     </MuiThemeProvider>
