@@ -1,18 +1,20 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
+//hintText, className,
+//
 
-const renderField = ({className, input, label, type, meta: {touched, error}}) => (
-
+// className = {className}
+const renderField = ({input, label, type, meta: {touched, error}}, ...custom) => (
     <TextField
-        className={className}
         floatingLabelText={label}
         errorText={touched && error}
         type={type}
+        {...input}
 
     />
-
-
 );
+
+// className
 
 export default renderField;
 {/*<div>*/

@@ -71,7 +71,7 @@ class OtherInformation extends Component {
                         value={this.state.companyName}
                         // errorText="This field is required"
                     />
-                    <Field
+                    <TextField
                         className="add-Partner-inputFields"
                         hintText="Country"
                         onChange={this.handleCountryChanged}

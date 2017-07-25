@@ -2,63 +2,58 @@ import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 import validate from './validate';
 import renderField from './renderField';
+import FlatButton from 'material-ui/FlatButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import '../addPartner.scss'
 
 const {DOM: {input}} = React;
 
 const WizardFormFirstPage = props => {
-    const {handleSubmit} = props;
+
+    const {handleSubmit, reset} = props;
     return (
         <form className="add-Partner-generalInformation" onSubmit={handleSubmit}>
-            <div>
-                {/*<FlatButton primary={true} label="Choose an Image">*/}
-                {/*<input type="file" id="imageButton"></input>*/}
-                {/*</FlatButton>*/}
+            <div className="add-Partner-wrap-avatar">
+                <FloatingActionButton className="add-Partner-wrap-avatar" disabled={true}>
+                    {/*<ContentAdd/>*/}
+                </FloatingActionButton>
             </div>
             <div className="add-Partner-wrap-inputFields">
                 <Field
                     className="add-Partner-inputFields"
-                    name="firstName"
+                    label="*Full name"
+                    name="fullName"
                     type="text"
                     component={renderField}
-                    label="First Name"
                 />
                 <Field
                     className="add-Partner-inputFields"
-                    hintText="*Full name"
-                    name="lastName"
+                    label="*Email"
+                    name="email"
                     type="text"
                     component={renderField}
-                    label="Last Name"
                 />
                 <Field
                     className="add-Partner-inputFields"
-                    hintText="Confirm password"
-                    name="lastName"
+                    label="*Password"
+                    name="password"
                     type="password"
                     component={renderField}
-                    label="Last Name"
                 />
                 <Field
                     className="add-Partner-inputFields"
-                    hintText="*Full name"
-                    name="lastName"
-                    type="Password"
+                    label="*Confirm password"
+                    type="password"
+                    name="confirmPassword"
                     component={renderField}
-                    label="Last Name"
                 />
-                <Field
-                    className="add-Partner-inputFields"
-                    hintText="*Full name"
-                    name="lastName"
-                    type="text"
-                    component={renderField}
-                    label="Last Name"
-                />
-
-
-                <div>
-                    <button type="submit" className="next">Next</button>
+            </div>
+            <div className="add-Partner-navigateButtons">
+                <div className="add-Partner-leftButtons ">
+                    <FlatButton label="Cancle" onClick={reset}/>
+                </div>
+                <div className="add-Partner-rightButtons">
+                    <FlatButton type="submit" label="next"/>
                 </div>
             </div>
         </form>

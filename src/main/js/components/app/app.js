@@ -21,9 +21,10 @@ const App = () => (
                     <NavigationMenu/>
                 </div>
                 <div className="card">
+                    {/*<PartnerDetails/>*/}
                     <WizardForm onSubmit={showResults}/>
                 </div>
-                {/*<Values form="wizard"/>*/}
+                <Values form="wizard"/>
             </div>
         </div>
     </MuiThemeProvider>

@@ -1,32 +1,78 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
 import validate from './validate'
-// const {DOM: {input}} = React
+import FlatButton from 'material-ui/FlatButton';
+import renderField from './renderField';
+
+const {DOM: {input}} = React;
 
 const WizardFormSecondPage = (props) => {
-    const {handleSubmit, previousPage} = props;
+    const {handleSubmit, pristine, previousPage, reset, submitting} = props;
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Email</label>
-                <Field name="email" component={email =>
-                    <div>
-                        <input type="email" {...email} placeholder="Email"/>
-                        {email.touched && email.error && <span>{email.error}</span>}
-                    </div>
-                }/>
+        <form onSubmit={handleSubmit} className="add-Partner-generalInformation">
+            <div className="add-Partner-wrap-inputFields">
+                <Field
+                    className="add-Partner-inputFields"
+                    label="*Phone number"
+                    name="phoneNumber"
+                    type="text"
+                    component={renderField}
+                />
+                <Field
+                    className="add-Partner-inputFields"
+                    label="*Company name"
+                    name="companyName"
+                    type="text"
+                    component={renderField}
+                />
+                <Field
+                    className="add-Partner-inputFields"
+                    label="*Country"
+                    name="country"
+                    type="text"
+                    component={renderField}
+                />
+                <Field
+                    className="add-Partner-inputFields"
+                    label="*City"
+                    name="city"
+                    type="text"
+                    component={renderField}
+                />
+                <Field
+                    className="add-Partner-inputFields"
+                    label="*Street address"
+                    name="streetAddress"
+                    type="text"
+                    component={renderField}
+                />
+                <Field
+                    className="add-Partner-inputFields"
+                    label="*ZIP"
+                    name="zip"
+                    type="text"
+                    component={renderField}
+                />
             </div>
-            <div>
-                <label>Sex</label>
-                <div>
-                    <label><Field name="sex" component={input} type="radio" value="male"/> Male</label>
-                    <label><Field name="sex" component={input} type="radio" value="female"/> Female</label>
-                    <Field name="sex" component={sex => sex.touched && sex.error ? <span>{sex.error}</span> : null}/>
+            <div className="add-Partner-navigateButtons">
+                <div className="add-Partner-leftButtons ">
+                    <FlatButton
+                        label="Cancle"
+                        onClick={reset}
+                    />
                 </div>
-            </div>
-            <div>
-                <button type="button" className="previous" onClick={previousPage}>Previous</button>
-                <button type="submit" className="next">Next</button>
+                <div className="add-Partner-rightButtons">
+                    <FlatButton
+                        className="add-Partner-rightButtons-previous-btn"
+                        label="previous"
+                        onClick={previousPage}
+                    />
+                    <FlatButton
+                        disabled={pristine || submitting}
+                        type="submit"
+                        label="create"
+                    />
+                </div>
             </div>
         </form>
     )
@@ -35,5 +81,6 @@ const WizardFormSecondPage = (props) => {
 export default reduxForm({
     form: 'wizard',  //Form name is same
     destroyOnUnmount: false,
+    forceUnregisterOnUnmount: true,
     validate
 })(WizardFormSecondPage)

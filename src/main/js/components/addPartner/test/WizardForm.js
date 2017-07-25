@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
 import WizardFormFirstPage from './WizardFormFirstPage';
 import WizardFormSecondPage from './WizardFormSecondPage';
-import WizardFormThirdPage from './WizardFormThirdPage';
 
 class WizardForm extends Component {
     constructor(props) {
@@ -29,14 +28,11 @@ class WizardForm extends Component {
         return (
             <Paper className="add-Partner-paper">
                 <div>
-                    {page === 1 && <WizardFormFirstPage onSubmit={this.nextPage}/>}
+                    {page === 1 &&
+                    <WizardFormFirstPage
+                        onSubmit={this.nextPage}/>}
                     {page === 2 &&
                     <WizardFormSecondPage
-                        previousPage={this.previousPage}
-                        onSubmit={this.nextPage}
-                    />}
-                    {page === 3 &&
-                    <WizardFormThirdPage
                         previousPage={this.previousPage}
                         onSubmit={onSubmit}
                     />}
